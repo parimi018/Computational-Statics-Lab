@@ -21,23 +21,17 @@ def Sum(a):
 
 def reg(x,y):
     c=np.array(x*y,dtype=object)
-    print('X*Y:',c)
     sigxy=Sum(c)
-    print('sXY:',sigxy)
     sigx=Sum(x)
-    print('sX:',sigx)
     sigy=Sum(y)
-    print('sY:',sigy)
     x2=np.array(x*x,dtype=object)
-    print('X2',x2)
     sigx2=Sum(x2)
-    print('sX2',sigx2)
     n=count(y)
     m=((n*sigxy)-(sigx*sigy))/((n*sigx2)-(sigx**2))
+    
     c=(sigy-(m*sigx))/n
-    ycap=np.array(m*x,dtype=object)
-    for i in ycap:
-        i+=c
+   
+    ycap=m*x+c
     ybar=Mean(y)
     SST=0
     for i in range(n):
